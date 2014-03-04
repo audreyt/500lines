@@ -6,6 +6,7 @@
   function calc(event) {
     [cache, errs, sheet] = [ {}, {}, event.data ]
     for (const coord in sheet) {
+      if (sheet[coord] == '') { delete sheet[coord]; continue; }
       for (const pre of [ '', '$' ]) {
         for (const cr of [ coord, coord.toLowerCase() ]) {
           if (( Object.getOwnPropertyDescriptor( self, pre+cr ) || {} ).get) { continue }

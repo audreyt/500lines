@@ -1248,15 +1248,19 @@ System.get("traceur-runtime@0.0.24/src/runtime/polyfill-import" + '');
                   throw undefined;
                 } catch (coord) {
                   coord = $coord;
+                  if (sheet[$traceurRuntime.toProperty(coord)] == '') {
+                    delete sheet[$traceurRuntime.toProperty(coord)];
+                    continue;
+                  }
                   for (var $__2 = ['', '$'][$traceurRuntime.toProperty(Symbol.iterator)](),
-                      $__3; !($__3 = $__2.next()).done;) {
+                      $__3; !($__3 = $__2.next()).done; ) {
                     try {
                       throw undefined;
                     } catch (pre) {
                       pre = $__3.value;
                       {
                         for (var $__0 = [coord, coord.toLowerCase()][$traceurRuntime.toProperty(Symbol.iterator)](),
-                            $__1; !($__1 = $__0.next()).done;) {
+                            $__1; !($__1 = $__0.next()).done; ) {
                           try {
                             throw undefined;
                           } catch (cr) {
@@ -1270,12 +1274,12 @@ System.get("traceur-runtime@0.0.24/src/runtime/polyfill-import" + '');
                                     return cache[$traceurRuntime.toProperty(coord)];
                                   }
                                   $traceurRuntime.setProperty(cache, coord, NaN);
-                                  var val = + sheet[$traceurRuntime.toProperty(coord)];
+                                  var val = +sheet[$traceurRuntime.toProperty(coord)];
                                   if (sheet[$traceurRuntime.toProperty(coord)] != val) {
                                     val = sheet[$traceurRuntime.toProperty(coord)];
                                   }
                                   try {
-                                    $traceurRuntime.setProperty(cache, coord, (('=' === val[$traceurRuntime.toProperty(0)]) ? globalEval(val.slice(1)): val));
+                                    $traceurRuntime.setProperty(cache, coord, (('=' === val[$traceurRuntime.toProperty(0)]) ? globalEval(val.slice(1)) : val));
                                   } catch (e) {
                                     try {
                                       throw undefined;
